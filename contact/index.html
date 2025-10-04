@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Harsh Arya</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+<nav>
+  <a href="../index.html">Home</a> |
+  <a href="../projects/index.html">Projects</a> |
+  <a href="index.html" aria-current="page">Contact</a> |
+  <a href="../resume/index.html">Resume</a> |
+  <a href="https://github.com/orginalbusta" target="_blank">GitHub</a>
+</nav>
+
+
+  <h1>Contact</h1>
+  <p>Use this form to send me an email.</p>
+
+  <!-- Step 7: Basic contact form -->
+  <form action="mailto:harya@ucsd.edu" method="POST" enctype="text/plain">
+    <label>
+      Your email
+      <input
+        type="email"
+        name="email"
+        placeholder="you@domain.com"
+        value="student@example.com"
+        required
+      />
+    </label>
+
+    <br><br>
+
+    <label>
+      Subject
+      <input name="subject" value="Hello from my portfolio site" />
+    </label>
+
+    <br><br>
+
+    <label>
+      Message
+      <textarea name="body" rows="6" cols="40">Hi Harsh — just testing the contact form!</textarea>
+    </label>
+
+    <br><br>
+
+    <button>Send</button>
+  </form>
+
+</body>
+</html>
