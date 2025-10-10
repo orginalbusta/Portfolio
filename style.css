@@ -3,7 +3,7 @@ body {
   font: 100%/1.6 system-ui;
 
   /* Max content width */
-  max-width: 35ch;
+  max-width: 100ch;
  
   /* Center layout */
   margin-inline: max(1em, (100% - 100ch) / 2);
