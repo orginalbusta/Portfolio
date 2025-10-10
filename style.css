@@ -1,14 +1,35 @@
 body {
-  /* Set line height to 1.5 times the font size
-	   and use the OS’s UI font as the website font
-	 */
-  font: 100%/1.5 system-ui;
+  /* Font styling */
+  font: 100%/1.6 system-ui;
+
+  /* Max content width */
+  max-width: 100ch;
+ 
+  /* Center layout */
+  margin-inline: max(1em, (100% - 100ch) / 2);
 }
 
-nav { margin: 1rem 0; }
-nav a { text-decoration: none; margin-right: 0.5rem; }
-nav a:hover { text-decoration: underline; }
+nav { 
+  margin: 1rem 0; 
+}
 
-h1, h2, h3 { margin: 0.5rem 0; }
-section { margin: 1.25rem 0; }
-article { margin: 0.75rem 0; }
+nav a { 
+  text-decoration: none; 
+  margin-right: 0.5rem; 
+}
+
+nav a:hover { 
+  text-decoration: underline; 
+}
+
+h1, h2, h3 { 
+  margin: 0.5rem 0; 
+}
+
+section { 
+  margin: 1.25rem 0; 
+}
+
+article { 
+  margin: 0.75rem 0; 
+}
