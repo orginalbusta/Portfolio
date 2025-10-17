@@ -1,6 +1,8 @@
 /* Step 2.4: Define accent color on root */
 :root {
     --color-accent: oklch(65% 50% 0);
+    /* Step 4.1: Enable automatic dark mode */
+    color-scheme: light dark;
 }
 
 body {
@@ -24,11 +26,14 @@ nav li {
 }
 
 /* Step 2.2: Enable Flexbox layout */
-nav { 
+nav {
+    /* Step 4.1: Define adaptive border color */
+    --border-color: oklch(50% 10% 200 / 40%);
+    
     display: flex;
     margin-bottom: 1.5em;
     /* Step 2.3: Add subtle bottom border */
-    border-bottom: 1px solid oklch(80% 3% 200);
+    border-bottom: 1px solid var(--border-color);
 }
 
 /* Step 2.2: Make each link take equal space */
@@ -45,7 +50,7 @@ nav a {
 
 /* Step 2.3: Style the current page link */
 nav a.current {
-    border-bottom: 0.4em solid oklch(80% 3% 200);
+    border-bottom: 0.4em solid var(--border-color);
     /* Reduce padding-bottom to counter the border height */
     padding-bottom: calc(0.5em - 0.4em);
 }
@@ -54,7 +59,8 @@ nav a.current {
 nav a:hover {
     border-bottom: 0.4em solid var(--color-accent);
     padding-bottom: calc(0.5em - 0.4em);
-    background-color: oklch(from var(--color-accent) 95% 5% h);
+    /* Step 4.1: Adaptive hover background using color-mix */
+    background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
 /* Step 4.4: Heading styles */
@@ -76,12 +82,21 @@ h2, h3 {
     margin: 0;
 }
 
+/* Step 4.3: Color scheme switcher positioning */
+.color-scheme {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 80%;
+}
+
 /* Step 3: Contact Form Styling */
 
 /* Step 3.1: Make form controls inherit font */
 input,
 textarea,
-button {
+button,
+select {
     font: inherit;
 }
 
