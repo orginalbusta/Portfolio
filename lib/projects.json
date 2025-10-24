@@ -1,0 +1,75 @@
+[
+  {
+    "title": "Interactive Data Dashboard",
+    "year": 2025,
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Built a real-time analytics dashboard with interactive visualizations using D3.js and React. Features dynamic filtering and responsive charts."
+  },
+  {
+    "title": "Weather Forecast App",
+    "year": 2024,
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Mobile-first weather application using OpenWeather API. Includes 7-day forecasts, geolocation support, and beautiful animations."
+  },
+  {
+    "title": "E-Commerce Platform",
+    "year": 2024,
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Full-stack online store with shopping cart, payment integration, and inventory management. Built with Node.js and MongoDB."
+  },
+  {
+    "title": "Social Media Clone",
+    "year": 2023,
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Twitter-like social platform with user authentication, posts, likes, and real-time updates using WebSockets."
+  },
+  {
+    "title": "Task Management System",
+    "year": 2023,
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Collaborative project management tool with drag-and-drop Kanban boards, team assignments, and progress tracking."
+  },
+  {
+    "title": "Recipe Sharing Website",
+    "year": 2023,
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Community-driven recipe platform with user-generated content, ratings, comments, and advanced search functionality."
+  },
+  {
+    "title": "Fitness Tracker App",
+    "year": 2022,
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Health and fitness application for logging workouts, tracking progress, and setting goals. Includes charts and statistics."
+  },
+  {
+    "title": "Portfolio Website Generator",
+    "year": 2022,
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Tool for creating custom portfolio sites with templates, drag-and-drop editor, and one-click deployment to GitHub Pages."
+  },
+  {
+    "title": "Music Streaming Interface",
+    "year": 2021,
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Spotify-inspired music player UI with playlists, search, and audio visualization. Integrates with music APIs."
+  },
+  {
+    "title": "Chat Application",
+    "year": 2021,
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Real-time messaging app with group chats, file sharing, and emoji support. Built using Socket.io for instant communication."
+  },
+  {
+    "title": "Blog Platform with CMS",
+    "year": 2020,
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Custom blogging system with markdown support, SEO optimization, and admin dashboard for content management."
+  },
+  {
+    "title": "Budget Tracking Tool",
+    "year": 2020,
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Personal finance manager for tracking expenses, creating budgets, and generating spending reports with visual breakdowns."
+  }
+]
+

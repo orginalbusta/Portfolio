@@ -1,0 +1,246 @@
+/* Step 2.4: Define accent color on root */
+:root {
+    --color-accent: oklch(65% 50% 0);
+    /* Step 4.1: Enable automatic dark mode */
+    color-scheme: light dark;
+}
+
+body {
+    /* Font styling */
+    font: 100%/1.6 system-ui;
+
+    /* Step 1: Max content width */
+    max-width: 100ch;
+    
+    /* Center layout */
+    margin-inline: max(1em, (100% - 100ch) / 2);
+
+    /* Step 2.4: Use accent color for form elements */
+    accent-color: var(--color-accent);
+}
+
+/* Step 2.1: Make ul and li invisible for styling purposes */
+nav ul,
+nav li {
+    display: contents;
+}
+
+/* Step 2.2: Enable Flexbox layout */
+nav {
+    /* Step 4.1: Define adaptive border color */
+    --border-color: oklch(50% 10% 200 / 40%);
+    
+    display: flex;
+    margin-bottom: 1.5em;
+    /* Step 2.3: Add subtle bottom border */
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Step 2.2: Make each link take equal space */
+nav a {
+    flex: 1;
+    /* Step 2.3: Remove underline and inherit color */
+    text-decoration: none;
+    color: inherit;
+    /* Step 2.3: Center text */
+    text-align: center;
+    /* Step 2.3: Add padding */
+    padding: 0.5em;
+}
+
+/* Step 2.3: Style the current page link */
+nav a.current {
+    border-bottom: 0.4em solid var(--border-color);
+    /* Reduce padding-bottom to counter the border height */
+    padding-bottom: calc(0.5em - 0.4em);
+}
+
+/* Step 2.4: Hover styles with accent color */
+nav a:hover {
+    border-bottom: 0.4em solid var(--color-accent);
+    padding-bottom: calc(0.5em - 0.4em);
+    /* Step 4.1: Adaptive hover background using color-mix */
+    background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+}
+
+/* Step 4.4: Heading styles */
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1;
+    text-wrap: balance;
+}
+
+h1 {
+    font-size: 400%;
+    margin: 0.5rem 0;
+}
+
+h2, h3 {
+    margin: 0.5rem 0;
+}
+
+.projects h2 {
+    margin: 0;
+}
+
+/* Step 4.3: Color scheme switcher positioning */
+.color-scheme {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 80%;
+}
+
+/* Lab 4 Step 3: GitHub profile stats styling */
+#profile-stats {
+    margin: 2em 0;
+}
+
+#profile-stats dl {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5em;
+    margin: 0;
+}
+
+#profile-stats dt {
+    grid-row: 1;
+    font-weight: bold;
+    text-align: center;
+}
+
+#profile-stats dd {
+    grid-row: 2;
+    margin: 0;
+    text-align: center;
+    font-size: 1.5em;
+    color: var(--color-accent);
+}
+
+/* Step 3: Contact Form Styling */
+
+/* Step 3.1: Make form controls inherit font */
+input,
+textarea,
+button,
+select {
+    font: inherit;
+}
+
+/* Step 3.3: Grid layout for form */
+form {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1em;
+}
+
+/* Step 3.3: Labels use subgrid and span full row */
+form label {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1 / -1;
+}
+
+/* Step 3.3: Submit button spans full row */
+form button {
+    grid-column: 1 / -1;
+}
+
+/* Step 4: Projects Page Styling */
+
+/* Step 4.2: Responsive grid layout */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+    gap: 1em;
+}
+
+/* Step 4.3: Subgrid for article alignment */
+.projects article {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 4;
+}
+
+/* Year styling for projects */
+.projects .year {
+    margin: 0;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: var(--color-accent);
+    opacity: 0.8;
+}
+
+/* Make images responsive */
+.projects img {
+    width: 100%;
+    height: auto;
+}
+
+/* Step 5: Resume/CV Styling */
+
+/* Header section with name and contact info */
+body > header {
+    text-align: center;
+    padding: 1em 0;
+    border-bottom: 2px solid var(--color-accent);
+    margin-bottom: 1.5em;
+}
+
+body > header h1 {
+    margin-bottom: 0.25em;
+    color: var(--color-accent);
+}
+
+body > header p {
+    margin: 0.25em 0;
+}
+
+/* Aside note styling */
+aside {
+    background-color: oklch(95% 5% 50);
+    padding: 1em;
+    border-left: 0.25em solid var(--color-accent);
+    margin: 1em 0;
+}
+
+/* Section spacing */
+section {
+    margin-bottom: 2em;
+}
+
+/* Section headings */
+section h2 {
+    color: var(--color-accent);
+    border-bottom: 1px solid oklch(80% 3% 200);
+    padding-bottom: 0.25em;
+}
+
+/* Article headings (job titles, etc.) */
+article h3 {
+    margin-bottom: 0.25em;
+}
+
+/* Time elements */
+time {
+    font-style: italic;
+    color: oklch(50% 0% 0);
+}
+
+/* Lists */
+ul {
+    margin: 0.5em 0;
+    padding-left: 1.5em;
+}
+
+li {
+    margin: 0.25em 0;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 2em;
+    padding-top: 1em;
+    border-top: 1px solid oklch(80% 3% 200);
+    color: oklch(50% 0% 0);
+}
