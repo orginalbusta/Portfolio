@@ -147,6 +147,84 @@ form button {
 
 /* Step 4: Projects Page Styling */
 
+/* Lab 5: SVG Pie Chart Styling */
+
+/* Step 2.3: Container for pie chart and legend side by side */
+.container {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    margin-block: 2em;
+}
+
+#projects-pie-plot {
+    max-width: 20em;
+    overflow: visible;
+}
+
+/* Lab 5 Step 5.1: Hover effects for pie chart */
+#projects-pie-plot path {
+    transition: 300ms;
+    cursor: pointer;
+}
+
+#projects-pie-plot:has(path:hover) path:not(:hover) {
+    opacity: 0.5;
+}
+
+/* Lab 5 Step 5.2: Selected wedge styling */
+.selected {
+    --color: oklch(60% 45% 0) !important;
+}
+
+.selected:is(path) {
+    fill: var(--color) !important;
+}
+
+/* Step 2.2: Legend styling */
+.legend {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+    gap: 1em;
+    list-style: none;
+    padding: 1em;
+    margin: 0;
+    border: 1px solid var(--border-color, oklch(50% 10% 200 / 40%));
+    border-radius: 0.5em;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.swatch {
+    width: 1em;
+    height: 1em;
+    background-color: var(--color);
+    border-radius: 0.25em;
+    display: inline-block;
+}
+
+/* Lab 5 Step 4: Search bar styling */
+.searchBar {
+    width: 100%;
+    padding: 0.75em 1em;
+    font-size: 1em;
+    border: 2px solid var(--border-color, oklch(50% 10% 200 / 40%));
+    border-radius: 0.5em;
+    margin-bottom: 2em;
+    background-color: canvas;
+    color: canvastext;
+}
+
+.searchBar:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
 /* Step 4.2: Responsive grid layout */
 .projects {
     display: grid;
