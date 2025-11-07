@@ -352,3 +352,32 @@ footer {
     font-size: 0.7em;
     color: inherit;
 }
+
+/* Lab 6 Step 2: Scatterplot styling */
+#chart svg {
+    max-width: 100%;
+    height: auto;
+}
+
+.gridlines line {
+    stroke: oklch(80% 3% 200);
+    stroke-opacity: 0.5;
+    stroke-dasharray: 2, 2;
+}
+
+.gridlines path {
+    stroke: none;
+}
+
+#chart svg text {
+    font-family: system-ui;
+    font-size: 12px;
+}
+
+#chart svg .tick line {
+    stroke: oklch(50% 3% 200);
+}
+
+#chart svg path.domain {
+    stroke: oklch(50% 3% 200);
+}
