@@ -1,0 +1,15 @@
+# Node.js dependencies
+node_modules/
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# IDE Files
+.vscode/
+.idea/
+
+# Temporary files
+*.log
+*.tmp
+
