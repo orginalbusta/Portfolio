@@ -116,6 +116,42 @@ function renderCommitInfo(data, commits) {
   dl.append('dd').text(maxDay || 'N/A');
 }
 
+// Step 3: Tooltip functions
+function renderTooltipContent(commit) {
+  const link = document.getElementById('commit-link');
+  const date = document.getElementById('commit-date');
+  const time = document.getElementById('commit-time');
+  const author = document.getElementById('commit-author');
+  const lines = document.getElementById('commit-lines');
+  
+  if (Object.keys(commit).length === 0) return;
+  
+  link.href = commit.url;
+  link.textContent = commit.id;
+  
+  date.textContent = commit.datetime?.toLocaleString('en', {
+    dateStyle: 'full',
+  });
+  
+  time.textContent = commit.datetime?.toLocaleString('en', {
+    timeStyle: 'short',
+  });
+  
+  author.textContent = commit.author;
+  lines.textContent = commit.totalLines;
+}
+
+function updateTooltipVisibility(isVisible) {
+  const tooltip = document.getElementById('commit-tooltip');
+  tooltip.hidden = !isVisible;
+}
+
+function updateTooltipPosition(event) {
+  const tooltip = document.getElementById('commit-tooltip');
+  tooltip.style.left = `${event.clientX}px`;
+  tooltip.style.top = `${event.clientY}px`;
+}
+
 // Step 2: Visualizing commits in a scatterplot
 function renderScatterPlot(data, commits) {
   // Step 2.1: Set up dimensions and SVG
@@ -182,18 +218,40 @@ function renderScatterPlot(data, commits) {
     .attr('transform', `translate(${usableArea.left}, 0)`)
     .call(yAxis);
   
+  // Step 4: Create radius scale for dot size
+  const [minLines, maxLines] = d3.extent(commits, (d) => d.totalLines);
+  
+  // Step 4.2: Use sqrt scale for proper area perception
+  const rScale = d3
+    .scaleSqrt()
+    .domain([minLines, maxLines])
+    .range([2, 30]);
+  
+  // Step 4.3: Sort commits by size (descending) for better interaction
+  const sortedCommits = d3.sort(commits, (d) => -d.totalLines);
+  
   // Step 2.1: Draw the dots
   const dots = svg.append('g').attr('class', 'dots');
   
   dots
     .selectAll('circle')
-    .data(commits)
+    .data(sortedCommits)
     .join('circle')
     .attr('cx', (d) => xScale(d.datetime))
     .attr('cy', (d) => yScale(d.hourFrac))
-    .attr('r', 5)
+    .attr('r', (d) => rScale(d.totalLines))
     .attr('fill', 'steelblue')
-    .attr('opacity', 0.7);
+    .style('fill-opacity', 0.7)
+    .on('mouseenter', (event, commit) => {
+      d3.select(event.currentTarget).style('fill-opacity', 1);
+      renderTooltipContent(commit);
+      updateTooltipVisibility(true);
+      updateTooltipPosition(event);
+    })
+    .on('mouseleave', (event) => {
+      d3.select(event.currentTarget).style('fill-opacity', 0.7);
+      updateTooltipVisibility(false);
+    });
 }
 
 // Main execution
