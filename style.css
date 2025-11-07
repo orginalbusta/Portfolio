@@ -322,3 +322,33 @@ footer {
     border-top: 1px solid oklch(80% 3% 200);
     color: oklch(50% 0% 0);
 }
+
+/* Lab 6: Meta page stats styling */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1em 2em;
+    margin: 2em 0;
+}
+
+.stats dt {
+    font-weight: bold;
+    grid-column: 1 / -1;
+    margin-top: 0.5em;
+}
+
+.stats dt:first-child {
+    margin-top: 0;
+}
+
+.stats dd {
+    grid-column: 1 / -1;
+    margin: 0 0 0.5em 0;
+    font-size: 1.5em;
+    color: var(--color-accent);
+}
+
+.stats code {
+    font-size: 0.7em;
+    color: inherit;
+}
