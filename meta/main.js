@@ -152,8 +152,14 @@ function updateTooltipPosition(event) {
   tooltip.style.top = `${event.clientY}px`;
 }
 
+// Step 5: Brushing - need to track scales and commits globally
+let xScale, yScale, commitsData;
+
 // Step 2: Visualizing commits in a scatterplot
 function renderScatterPlot(data, commits) {
+  // Store commits for brushing
+  commitsData = commits;
+  
   // Step 2.1: Set up dimensions and SVG
   const width = 1000;
   const height = 600;
@@ -176,14 +182,14 @@ function renderScatterPlot(data, commits) {
     height: height - margin.top - margin.bottom,
   };
   
-  // Step 2.1: Create scales
-  const xScale = d3
+  // Step 2.1: Create scales (now stored globally for brushing)
+  xScale = d3
     .scaleTime()
     .domain(d3.extent(commits, (d) => d.datetime))
     .range([usableArea.left, usableArea.right])
     .nice();
   
-  const yScale = d3
+  yScale = d3
     .scaleLinear()
     .domain([0, 24])
     .range([usableArea.bottom, usableArea.top]);
@@ -252,6 +258,86 @@ function renderScatterPlot(data, commits) {
       d3.select(event.currentTarget).style('fill-opacity', 0.7);
       updateTooltipVisibility(false);
     });
+  
+  // Step 5.1-5.2: Set up brush
+  svg.call(d3.brush().on('start brush end', brushed));
+  
+  // Raise dots and everything after overlay to restore tooltips
+  svg.selectAll('.dots, .overlay ~ *').raise();
+}
+
+// Step 5.4: Check if commit is within brush selection
+function isCommitSelected(selection, commit) {
+  if (!selection) {
+    return false;
+  }
+  
+  const [[x0, y0], [x1, y1]] = selection;
+  const x = xScale(commit.datetime);
+  const y = yScale(commit.hourFrac);
+  
+  return x >= x0 && x <= x1 && y >= y0 && y <= y1;
+}
+
+// Step 5.4: Handle brush events
+function brushed(event) {
+  const selection = event.selection;
+  
+  d3.selectAll('circle').classed('selected', (d) =>
+    isCommitSelected(selection, d),
+  );
+  
+  renderSelectionCount(selection);
+  renderLanguageBreakdown(selection);
+}
+
+// Step 5.5: Show count of selected commits
+function renderSelectionCount(selection) {
+  const selectedCommits = selection
+    ? commitsData.filter((d) => isCommitSelected(selection, d))
+    : [];
+  
+  const countElement = document.querySelector('#selection-count');
+  countElement.textContent = `${
+    selectedCommits.length || 'No'
+  } commits selected`;
+  
+  return selectedCommits;
+}
+
+// Step 5.6: Show language breakdown
+function renderLanguageBreakdown(selection) {
+  const selectedCommits = selection
+    ? commitsData.filter((d) => isCommitSelected(selection, d))
+    : [];
+  
+  const container = document.getElementById('language-breakdown');
+  
+  if (selectedCommits.length === 0) {
+    container.innerHTML = '';
+    return;
+  }
+  
+  const requiredCommits = selectedCommits.length ? selectedCommits : commitsData;
+  const lines = requiredCommits.flatMap((d) => d.lines);
+  
+  // Use d3.rollup to count lines per language
+  const breakdown = d3.rollup(
+    lines,
+    (v) => v.length,
+    (d) => d.type,
+  );
+  
+  // Update DOM with breakdown
+  container.innerHTML = '';
+  for (const [language, count] of breakdown) {
+    const proportion = count / lines.length;
+    const formatted = d3.format('.1~%')(proportion);
+    container.innerHTML += `
+      <dt>${language}</dt>
+      <dd>${count} lines (${formatted})</dd>
+    `;
+  }
 }
 
 // Main execution
