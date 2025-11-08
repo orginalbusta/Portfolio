@@ -259,8 +259,12 @@ function renderScatterPlot(data, commits) {
       updateTooltipVisibility(false);
     });
   
-  // Step 5.1-5.2: Set up brush
-  svg.call(d3.brush().on('start brush end', brushed));
+  // Step 5.1-5.2: Set up brush with proper extent
+  svg.call(
+    d3.brush()
+      .extent([[usableArea.left, usableArea.top], [usableArea.right, usableArea.bottom]])
+      .on('start brush end', brushed)
+  );
   
   // Raise dots and everything after overlay to restore tooltips
   svg.selectAll('.dots, .overlay ~ *').raise();
