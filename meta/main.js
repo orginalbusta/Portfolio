@@ -159,10 +159,18 @@ function updateTooltipPosition(event) {
 // Step 5 & Lab 8: Global state for brushing, filtering, and animation
 let xScale, yScale, commitsData;
 let data, commits;
+
+// Slider and filtering state for scatter plot
 let commitProgress = 100;
 let timeScale;
 let commitMaxTime;
 let filteredCommits;
+
+// Slider and filtering state for file visualization
+let fileProgress = 100;
+let fileMaxTime;
+let filteredCommitsForFiles;
+
 let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
 // Step 2: Visualizing commits in a scatterplot
@@ -458,7 +466,7 @@ function updateFileDisplay(filteredCommits) {
     .style('--color', (d) => colors(d.type));
 }
 
-// Lab 8 Step 1.1 & 1.2: Time slider behavior
+// Lab 8 Step 1.1 & 1.2: Time slider behavior (scatter plot)
 function onTimeSliderChange() {
   const slider = document.getElementById('commit-progress');
   const timeElement = document.getElementById('commit-time');
@@ -476,7 +484,26 @@ function onTimeSliderChange() {
   filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
 
   updateScatterPlot(data, filteredCommits);
-  updateFileDisplay(filteredCommits);
+}
+
+// Separate slider behavior for file size visualization
+function onFileSliderChange() {
+  const slider = document.getElementById('file-progress');
+  const timeElement = document.getElementById('file-time');
+
+  if (!slider || !timeElement || !timeScale || !commits) return;
+
+  fileProgress = Number(slider.value);
+  fileMaxTime = timeScale.invert(fileProgress);
+
+  timeElement.textContent = fileMaxTime.toLocaleString('en', {
+    dateStyle: 'long',
+    timeStyle: 'short',
+  });
+
+  filteredCommitsForFiles = commits.filter((d) => d.datetime <= fileMaxTime);
+
+  updateFileDisplay(filteredCommitsForFiles);
 }
 
 // Lab 8 Step 3: Scrollytelling callbacks
@@ -505,7 +532,6 @@ function onStepEnter(response) {
   filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
 
   updateScatterPlot(data, filteredCommits);
-  updateFileDisplay(filteredCommits);
 }
 
 // Main execution
@@ -531,13 +557,20 @@ timeScale = d3
 filteredCommits = commits;
 commitMaxTime = timeScale.invert(commitProgress);
 
-const slider = document.getElementById('commit-progress');
-if (slider) {
-  slider.addEventListener('input', onTimeSliderChange);
+const commitSlider = document.getElementById('commit-progress');
+if (commitSlider) {
+  commitSlider.addEventListener('input', onTimeSliderChange);
 }
 
-// Initialize slider display and file visualization
+// Initialize scatter slider display
 onTimeSliderChange();
+
+// Initialize file slider and visualization
+const fileSlider = document.getElementById('file-progress');
+if (fileSlider) {
+  fileSlider.addEventListener('input', onFileSliderChange);
+}
+onFileSliderChange();
 
 // Lab 8 Step 3.2: Generate commit narrative text
 d3.select('#scatter-story')

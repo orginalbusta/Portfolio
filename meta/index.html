@@ -72,7 +72,23 @@
     </p>
   </section>
 
-  <dl id="files"></dl>
+  <section>
+    <h2>File sizes over time</h2>
+    <div>
+      <label>
+        Show files until:
+        <input
+          type="range"
+          id="file-progress"
+          min="0"
+          max="100"
+          value="100"
+        >
+        <time id="file-time"></time>
+      </label>
+    </div>
+    <dl id="files"></dl>
+  </section>
 
 </body>
 </html>
