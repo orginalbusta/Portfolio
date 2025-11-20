@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 6 Video Script - Harsh Arya</title>
+    <style>
+        @media print {
+            body { margin: 1in; }
+            .page-break { page-break-before: always; }
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 1in;
+            background: white;
+            color: #333;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 0.5em;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 1.5em;
+            border-left: 4px solid #3498db;
+            padding-left: 0.5em;
+        }
+        h3 {
+            color: #7f8c8d;
+            margin-top: 1em;
+        }
+        .timing {
+            background: #3498db;
+            color: white;
+            padding: 0.2em 0.5em;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .section {
+            background: #ecf0f1;
+            padding: 1em;
+            margin: 1em 0;
+            border-radius: 5px;
+            border-left: 5px solid #3498db;
+        }
+        .script-text {
+            background: #fff;
+            padding: 1em;
+            margin: 0.5em 0;
+            border-left: 3px solid #2ecc71;
+            font-style: italic;
+        }
+        .actions {
+            background: #fff3cd;
+            padding: 0.5em;
+            margin: 0.5em 0;
+            border-left: 3px solid #ffc107;
+        }
+        .tip {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-left: 4px solid #17a2b8;
+            padding: 1em;
+            margin: 1em 0;
+            border-radius: 5px;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-left: 4px solid #28a745;
+            padding: 1em;
+            margin: 1em 0;
+            border-radius: 5px;
+        }
+        code {
+            background: #2c3e50;
+            color: #2ecc71;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Lab 6 - Video Submission Script</h1>
+<h2>1 Minute Video Guide - Quantitative D3 Visualizations</h2>
+
+<p><strong>Student:</strong> Harsh Arya<br>
+<strong>Lab:</strong> Data Visualization with D3.js (Meta Analysis)<br>
+<strong>Time Target:</strong> 55-58 seconds (to stay under 1 minute)</p>
+
+<hr>
+
+<h2>📋 Video Requirements</h2>
+<ol>
+    <li>✅ Present your quantitative D3 visualizations</li>
+    <li>✅ Show you interacting with your D3 visualizations</li>
+    <li>✅ Share the most interesting thing you learned</li>
+</ol>
+
+<hr>
+
+<h2>🎬 FULL SCRIPT (Timed)</h2>
+
+<div class="section">
+    <h3><span class="timing">[0:00-0:20]</span> Section 1: Present Visualizations (20 seconds)</h3>
+    
+    <p><strong>What to show:</strong> Meta page with all visualizations visible</p>
+    
+    <div class="script-text">
+        <strong>What to say:</strong><br>
+        "This is my Lab 6 meta-analysis page. I've created quantitative D3 visualizations to analyze my portfolio codebase. At the top, I have summary statistics showing key metrics like total lines of code, 964 lines across 139 files, number of commits, average file length, and when I'm most productive. Below that is an interactive scatterplot showing all commits by time of day and date, with dot sizes representing the number of lines edited in each commit."
+    </div>
+    
+    <div class="actions">
+        <strong>Camera actions:</strong><br>
+        • Start at top of meta page<br>
+        • Show summary statistics section (2 seconds)<br>
+        • Scroll down to show full scatterplot (2 seconds)<br>
+        • Point out axes: dates on X, time of day on Y (2 seconds)<br>
+        • Show variable dot sizes (2 seconds)<br>
+        • Pan across entire visualization (2 seconds)
+    </div>
+</div>
+
+<div class="section">
+    <h3><span class="timing">[0:20-0:45]</span> Section 2: Interact with Visualizations (25 seconds)</h3>
+    
+    <p><strong>What to show:</strong> All interactive features in action</p>
+    
+    <div class="script-text">
+        <strong>What to say:</strong><br>
+        "Let me demonstrate the interactions. Hovering over any dot displays a tooltip with commit details - the commit ID as a clickable GitHub link, the full date and time, author, and lines edited. The dots scale up on hover for emphasis. Now I'll use brushing to select multiple commits - I drag to create a selection rectangle, and the selected dots turn red. Below the chart, you can see it shows 2 commits selected, and displays a language breakdown showing that the selected commits contain CSS, JavaScript, and HTML with their line counts and percentages."
+    </div>
+    
+    <div class="actions">
+        <strong>Camera actions:</strong><br>
+        1. Hover over a dot (2 seconds) - show tooltip appearing<br>
+        2. Move to hover different dots (2 seconds) - show tooltip updating<br>
+        3. Click and drag to create brush selection (3 seconds)<br>
+        4. Show dots turning red inside selection (2 seconds)<br>
+        5. Show "X commits selected" text (2 seconds)<br>
+        6. Show language breakdown with percentages (3 seconds)<br>
+        7. Create a different selection (3 seconds)<br>
+        8. Show language breakdown updating (2 seconds)<br>
+        9. Click outside to deselect (2 seconds)
+    </div>
+</div>
+
+<div class="section">
+    <h3><span class="timing">[0:45-0:58]</span> Section 3: Most Interesting Learning (13 seconds)</h3>
+    
+    <p><strong>What to show:</strong> Scatterplot with some interaction still visible</p>
+    
+    <div class="script-text">
+        <strong>What to say:</strong><br>
+        "The most interesting thing I learned was how D3's brush interaction combined with scale functions enables powerful data exploration. Using extent to define brush boundaries, classed to dynamically style selections, and rollup to aggregate filtered data creates a complete linked visualization where selecting commits instantly reveals their language composition. It's fascinating how these D3 primitives compose together to build professional interactive analytics."
+    </div>
+    
+    <div class="actions">
+        <strong>Camera actions:</strong><br>
+        • Show brush selection one more time (3 seconds)<br>
+        • Show the language breakdown updating (2 seconds)<br>
+        • Pan to show full working visualization (3 seconds)
+    </div>
+</div>
+
+<div class="page-break"></div>
+
+<hr>
+
+<h2>🎥 Recording Tips</h2>
+
+<div class="tip">
+    <h3>Setup Before Recording:</h3>
+    <ol>
+        <li><strong>Open page:</strong> Navigate to <code>http://localhost:8080/meta/</code> or <code>https://orginalbusta.github.io/Portfolio/meta/</code></li>
+        <li><strong>Clear browser cache:</strong> Hard refresh (<code>Ctrl + Shift + R</code>) to ensure everything loads</li>
+        <li><strong>Check console:</strong> F12 → Console should show no errors</li>
+        <li><strong>Close unnecessary tabs/apps:</strong> Minimize distractions</li>
+        <li><strong>Set up recording:</strong> Windows Game Bar (<code>Win + G</code>) or OBS Studio</li>
+        <li><strong>Test audio:</strong> Speak clearly into microphone</li>
+    </ol>
+</div>
+
+<div class="tip">
+    <h3>Practice Run:</h3>
+    <ul>
+        <li>Do a <strong>dry run</strong> without recording first</li>
+        <li><strong>Time yourself</strong> - aim for 55 seconds (5 second buffer)</li>
+        <li>Practice the interactions so they're smooth</li>
+        <li>Make sure tooltip appears when hovering</li>
+        <li>Verify brush selection works (dots turn red)</li>
+        <li>Check language breakdown appears</li>
+    </ul>
+</div>
+
+<div class="tip">
+    <h3>During Recording:</h3>
+    <ul>
+        <li>Start recording, wait 2 seconds, then begin speaking</li>
+        <li>Speak at a <strong>steady, confident pace</strong></li>
+        <li>Follow the script naturally (don't read robotically)</li>
+        <li>If you make a mistake, pause and restart that section</li>
+        <li>Keep mouse movements smooth and deliberate</li>
+        <li>Make sure tooltip is visible when hovering</li>
+        <li>End cleanly - stop talking, wait 2 seconds, stop recording</li>
+    </ul>
+</div>
+
+<div class="tip">
+    <h3>After Recording:</h3>
+    <ul>
+        <li>Watch the video to check quality</li>
+        <li>Verify audio is clear</li>
+        <li>Ensure video is <strong>under 60 seconds</strong></li>
+        <li>Trim any dead space at start/end</li>
+        <li>Check that all interactions are visible</li>
+        <li>Export as <strong>MP4 format</strong></li>
+    </ul>
+</div>
+
+<hr>
+
+<h2>📤 Submission Checklist</h2>
+
+<ul style="list-style: none; padding: 0;">
+    <li>☐ Video recorded (MP4 format, under 60 seconds)</li>
+    <li>☐ Video shows all 3 required components</li>
+    <li>☐ GitHub repo link: <code>https://github.com/orginalbusta/Portfolio</code></li>
+    <li>☐ Live website link: <code>https://orginalbusta.github.io/Portfolio/meta/</code></li>
+    <li>☐ Upload video to submission platform</li>
+</ul>
+
+<hr>
+
+<h2>🎯 Key Points to Emphasize in Video</h2>
+
+<div class="success">
+    <h3>Quantitative Aspects (Data-Driven):</h3>
+    <ul>
+        <li><strong>964 lines of code</strong> analyzed</li>
+        <li><strong>139 files</strong> in codebase</li>
+        <li><strong>Multiple commits</strong> visualized over time</li>
+        <li><strong>Dot sizes</strong> proportional to lines edited (sqrt scale)</li>
+        <li><strong>Time-based analysis</strong> (hour of day vs. date)</li>
+        <li><strong>Language percentages</strong> calculated from selected commits</li>
+    </ul>
+</div>
+
+<div class="success">
+    <h3>D3 Techniques Demonstrated:</h3>
+    <ul>
+        <li><strong>d3.csv()</strong> - Loading and parsing data</li>
+        <li><strong>d3.scaleTime()</strong> - Time scale for X-axis</li>
+        <li><strong>d3.scaleLinear()</strong> - Linear scale for Y-axis</li>
+        <li><strong>d3.scaleSqrt()</strong> - Square root scale for dot sizes</li>
+        <li><strong>d3.brush()</strong> - Interactive selection</li>
+        <li><strong>d3.rollup()</strong> - Data aggregation</li>
+        <li><strong>d3.format()</strong> - Number formatting (percentages)</li>
+        <li><strong>Dynamic tooltips</strong> - Hover information</li>
+        <li><strong>Selection highlighting</strong> - Red dots on selection</li>
+    </ul>
+</div>
+
+<hr>
+
+<h2>💡 Alternative Script (If You Want to Go Deeper)</h2>
+
+<div class="section">
+    <h3>Extended Interesting Learning (Choose One):</h3>
+    <p><strong>Option 1 - Technical:</strong></p>
+    <p>"The most interesting thing I learned was the importance of proper scale selection. Using a sqrt scale instead of linear for dot sizes ensures the visual area is proportional to the data value, preventing perceptual distortion. Combined with D3's brush extent configuration and the raise method to fix layer ordering, these small technical details make the difference between a broken and a professional visualization."</p>
+    
+    <p><strong>Option 2 - Data Insights:</strong></p>
+    <p>"The most interesting thing I learned was what the visualization revealed about my coding patterns. The scatterplot shows my commits cluster around certain times of day, and the brush selection reveals that my CSS edits tend to be smaller while JavaScript commits involve more lines. This meta-analysis turns my own code into data, giving me insights into my development habits."</p>
+    
+    <p><strong>Option 3 - Interaction Design:</strong></p>
+    <p>"The most interesting thing I learned was how multiple coordinated interactions create powerful data exploration. Hovering provides instant detail, brushing enables multi-selection, and the language breakdown shows aggregated statistics for selections. Each interaction builds on the others, creating what's called a 'linked view' where one visualization controls another, which is fundamental to professional data analytics dashboards."</p>
+</div>
+
+<hr>
+
+<h2>🎬 Recording Software Options</h2>
+
+<h3>Windows:</h3>
+<ul>
+    <li><strong>Xbox Game Bar</strong> (Built-in) - Press <code>Win + G</code></li>
+    <li><strong>OBS Studio</strong> (Free) - Professional streaming software</li>
+    <li><strong>ShareX</strong> (Free) - Lightweight screen recorder</li>
+</ul>
+
+<h3>Mac:</h3>
+<ul>
+    <li><strong>QuickTime Player</strong> (Built-in) - File → New Screen Recording</li>
+    <li><strong>OBS Studio</strong> (Free) - Cross-platform</li>
+</ul>
+
+<h3>Web-Based:</h3>
+<ul>
+    <li><strong>Loom</strong> - Easy browser recording</li>
+    <li><strong>RecordScreen.io</strong> - No installation needed</li>
+</ul>
+
+<hr>
+
+<div class="success">
+    <h2>✅ Your Lab 6 is Complete!</h2>
+    
+    <p><strong>Features Implemented:</strong></p>
+    <ul>
+        <li>✅ CSV data loading and type conversion</li>
+        <li>✅ Commit data processing with hidden properties</li>
+        <li>✅ 10+ summary statistics with D3 aggregations</li>
+        <li>✅ Scatterplot with time and linear scales</li>
+        <li>✅ Formatted axes (dates and 24-hour time)</li>
+        <li>✅ Horizontal gridlines for readability</li>
+        <li>✅ Interactive tooltips following cursor</li>
+        <li>✅ Variable dot sizes with sqrt scale</li>
+        <li>✅ Brush selection with extent configuration</li>
+        <li>✅ Selection highlighting (red dots)</li>
+        <li>✅ Dynamic selection count</li>
+        <li>✅ Language breakdown with percentages</li>
+        <li>✅ Marching ants animation</li>
+        <li>✅ Fixed tooltip contrast (dark on light)</li>
+    </ul>
+    
+    <p><strong>All bugs fixed and working perfectly!</strong></p>
+</div>
+
+<hr>
+<p style="text-align: center; color: #7f8c8d; font-size: 0.9em;">
+    <strong>To save as PDF:</strong> Press Ctrl+P (or Cmd+P on Mac) → Select "Save as PDF" → Save<br>
+    <strong>Good luck with your video!</strong> 🎥📊🚀
+</p>
+
+</body>
+</html>
+
+
+
+
+

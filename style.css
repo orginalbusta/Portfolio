@@ -476,3 +476,96 @@ circle.selected {
 #language-breakdown {
     margin-top: 1em;
 }
+
+/* Lab 8: Animation, unit visualization, and scrollytelling */
+
+/* Smooth radius animations for circles, with entry transition */
+circle {
+  transition: all 200ms, r calc(var(--r, 10) * 100ms);
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@starting-style {
+  circle {
+    r: 0;
+  }
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
+
+/* Unit visualization for files */
+#files {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 0.5em 1em;
+  margin: 2em 0;
+}
+
+#files > div {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+}
+
+#files dt {
+  grid-column: 1;
+}
+
+#files dd {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 0.15em;
+  padding-top: 0.6em;
+  margin-left: 0;
+}
+
+#files code {
+  font-size: 0.9em;
+}
+
+#files small {
+  display: block;
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
+.loc {
+  display: flex;
+  width: 0.5em;
+  aspect-ratio: 1;
+  background: var(--color, steelblue);
+  border-radius: 50%;
+}
+
+/* Scrollytelling layout */
+#scrolly-1 {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+}
+
+#scrolly-1 > * {
+  flex: 1;
+}
+
+#scatter-story {
+  position: relative;
+}
+
+#scatter-plot {
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: auto;
+  height: 50vh;
+}
+
+#scatter-story .step {
+  padding-bottom: 4rem;
+}
